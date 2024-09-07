@@ -1,0 +1,26 @@
+< t.txt "cat" | "hostname" > out1.txt
+gcc -Wall -Wextra -Werror -o pipex *.c && ./pipex "t.txt" "cat" "hostname" "out2.txt"
+
+< t.txt grep Now | head -2 > out1.txt
+gcc -Wall -Wextra -Werror -o pipex *.c && ./pipex "t.txt" "grep Now" "head -2" "out2.txt"
+
+< t.txt grep Now | wc -w > out1.txt
+gcc -Wall -Wextra -Werror -o pipex *.c && ./pipex "t.txt" "grep Now" "wc -w" "out2.txt"
+
+< t.txt grep Now | cat > out1.txt
+gcc -Wall -Wextra -Werror -o pipex *.c && ./pipex "t.txt" "grep Now" "cat" "out2.txt"
+
+< t.txt wc -w | cat > out1.txt
+gcc -Wall -Wextra -Werror -o pipex *.c && ./pipex "t.txt" "wc -w" "cat" "out2.txt"
+
+< t.txt notexisting | wc > out1.txt
+gcc -Wall -Wextra -Werror -o pipex *.c && ./pipex "t.txt" "notexiting" "wc" "out2.txt"
+
+< t.txt cat | notexisting > out1.txt
+gcc -Wall -Wextra -Werror -o pipex *.c && ./pipex "t.txt" "cat" "notexisting" "out2.txt"
+
+< t.txt grep Now | /usr/bin/cat > out1.txt
+gcc -Wall -Wextra -Werror -o pipex *.c && ./pipex "t.txt" "grep Now" "/usr/bin/cat" "out2.txt"
+
+< t.txt cat | head -1 > out1.txt
+gcc -Wall -Wextra -Werror -o pipex *.c && ./pipex "t.txt" "cat" "head -1" "out2.txt"
